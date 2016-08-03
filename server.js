@@ -12,9 +12,9 @@ require('dotenv').load();
 require('./app/config/passport')(passport);
 
 mongoose.connect(process.env.MONGO_URI);
-var logger = morgan('combined', {
+var logger = morgan('dev');/*, {
   skip: function (req, res) { return res.statusCode < 400 }
-});
+});*/
 
 app.use(logger);
 app.use('/controllers', express.static(process.cwd() + '/app/controllers'));
